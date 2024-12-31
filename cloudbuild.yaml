@@ -1,0 +1,57 @@
+steps:
+  # reservations
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+    [
+      'build',
+      '-t',
+      'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/reservations/production',
+      '-f',
+      'apps/reservations/Dockerfile',
+      '.'
+    ]
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ['push', 'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/reservations/production']
+  # auth
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+    [
+      'build',
+      '-t',
+      'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/auth/production',
+      '-f',
+      'apps/auth/Dockerfile',
+      '.'
+    ]
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ['push', 'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/auth/production']
+  # payments
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+    [
+      'build',
+      '-t',
+      'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/payments/production',
+      '-f',
+      'apps/payments/Dockerfile',
+      '.'
+    ]
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ['push', 'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/payments/production']
+  # notifications
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+    [
+      'build',
+      '-t',
+      'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/notifications/production',
+      '-f',
+      'apps/notifications/Dockerfile',
+      '.'
+    ]
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ['push', 'asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/notifications/production']
