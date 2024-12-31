@@ -67,3 +67,5 @@ steps:
         "push",
         "asia-southeast1-docker.pkg.dev/possible-aspect-445722-r7/notifications/production",
       ]
+options:
+  logging: CLOUD_LOGGING_ONLY
